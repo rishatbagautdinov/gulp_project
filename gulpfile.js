@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const sass        = require('gulp-sass')(require('sass'));
 const rename = require("gulp-rename");
 const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
 
 // Static server
 gulp.task('server', function() {
@@ -14,7 +15,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('styles', function () {
-    return gulp.src("src/sass/*.+(scss|sass)")
+    return gulp.src("src/sass/blocks/*.+(scss|sass)")
         .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({
             prefix: '',
@@ -22,11 +23,14 @@ gulp.task('styles', function () {
           }))
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest("src/css"))
+        .pipe(autoprefixer({
+			cascade: false
+		}))
         .pipe(browserSync.stream());
 })
 
 gulp.task('watch', function() {
-    gulp.watch('src/sass/*.+(scss|sass)', gulp.parallel('styles'));
+    gulp.watch('src/sass/blocks/*.+(scss|sass)', gulp.parallel('styles'));
     gulp.watch('src/*.html').on('change', browserSync.reload); 
 })
 

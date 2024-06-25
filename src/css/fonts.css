@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Museo-Bold';
+    src: url(../fonts/MuseoModerno-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Museo-Light';
+    src: url(../fonts/MuseoModerno-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Museo-Medium';
+    src: url(../fonts/MuseoModerno-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Museo-Regular';
+    src: url(../fonts/MuseoModerno-Regular.ttf);
+}
