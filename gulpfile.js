@@ -15,14 +15,14 @@ gulp.task('server', function() {
 });
 
 gulp.task('styles', function () {
-    return gulp.src("src/sass/blocks/*.+(scss|sass)")
+    return gulp.src("src/sass/*.+(scss|sass)")
         .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({
             prefix: '',
             suffix: ".min"
           }))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest("src/css"))
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(autoprefixer({
 			cascade: false
 		}))
@@ -30,8 +30,8 @@ gulp.task('styles', function () {
 })
 
 gulp.task('watch', function() {
-    gulp.watch('src/sass/blocks/*.+(scss|sass)', gulp.parallel('styles'));
-    gulp.watch('src/*.html').on('change', browserSync.reload); 
+    gulp.watch('src/sass/*.+(scss|sass)', gulp.parallel('styles'));
+    gulp.watch('src/*.html').on('change', browserSync.reload);
 })
 
 gulp.task("default", gulp.parallel('watch', 'server', 'styles'));
