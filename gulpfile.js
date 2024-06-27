@@ -21,16 +21,16 @@ gulp.task('styles', function () {
             prefix: '',
             suffix: ".min"
           }))
-        .pipe(gulp.dest("src/css"))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(autoprefixer({
 			cascade: false
 		}))
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest("src/css"))
         .pipe(browserSync.stream());
 })
 
 gulp.task('watch', function() {
-    gulp.watch('src/sass/*.+(scss|sass)', gulp.parallel('styles'));
+    gulp.watch('src/sass/**/*.+(scss|sass)', gulp.parallel('styles'));
     gulp.watch('src/*.html').on('change', browserSync.reload);
 })
 
