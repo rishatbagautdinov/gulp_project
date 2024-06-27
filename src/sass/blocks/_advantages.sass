@@ -1,6 +1,6 @@
 .advantages
     background-color: #f6f6f6
-    height: 474px
+    min-height: 474px
     padding: 73px 0 82px 0
     &__header
         font-weight: 700
@@ -9,8 +9,9 @@
         color: #0d0d0d
     &__wrapper
         display: flex
-        justify-content: space-between
+        justify-content: space-around
         margin-top: 60px
+        flex-wrap: wrap
     &__advantage
         display: flex
         flex-direction: column
@@ -20,7 +21,6 @@
         line-height: 129%
         text-align: center
         color: #0d0d0d
-        max-width: 276px
         a
             color: $main-color
             text-decoration: underline
@@ -31,3 +31,5 @@
         color: #0d0d0d
         margin-top: 36px
         margin-bottom: 20px
+    &__descr
+        max-width: 278px
